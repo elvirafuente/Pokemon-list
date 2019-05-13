@@ -1,10 +1,7 @@
 import React from 'react';
 
-
 class PokeList extends React.Component {
     render(){
-        const pokemons = this.props.data
-        console.log(pokemons)
         return (
             <ul>
             {pokemons.map(item => 
