@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css';
 
 class Pokemon extends React.Component {
     render(){
@@ -6,7 +7,7 @@ class Pokemon extends React.Component {
 
         
         return (
-            <li key={item.id}>
+            <li key={item.id} className="Pokemon__card">
                   <img src= { item.url } alt={ item.name }/>
                   <p>{ item.name } </p>
                   <div>

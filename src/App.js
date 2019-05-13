@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import PokeList from './components/PokeList'
 
 const pokemons = [
   {"id":1,"name":"bulbasaur","types":["poison","grass"],"evolution":null,"url":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"},
@@ -20,23 +21,10 @@ class App extends React.Component {
   render(){
       return (
         <div className="App">
-          <ul>
-            {pokemons.map(item => 
-              <li key={item.id}>
-                <img src= { item.url } alt={ item.name }/>
-                <p>{ item.name } </p>
-                <div>
-                  { item.types.map ((typeTag, index) =>
-                    <span key= {`p${index}`}>{ typeTag }</span>
-                  )}
-                </div>
-              </li>)}
-          </ul>
-              
+          < PokeList data={pokemons}/>
         </div>
       );
-
-}
+  }
 }
 
 export default App;
