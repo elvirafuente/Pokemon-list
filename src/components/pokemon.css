@@ -1,0 +1,36 @@
+.Pokemon__card {
+  border: 4px solid black;
+  margin: 10px;
+  border-radius: 25px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.card__title {
+  width: 100%;
+  text-align: center;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  padding: 10px 0;
+  background-color: #edf3ff;
+  font-size: 20px;
+}
+
+.card__img{
+  padding: 10px;
+}
+
+.card__info {
+  background-color: red;
+  padding: 10px;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-weight: 500;
+}

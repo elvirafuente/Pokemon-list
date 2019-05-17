@@ -1,10 +1,8 @@
-.Pokemon__list {
-  list-style: none;
-  display: flex;
-flex-wrap: wrap;
+.app__title{
+  width: 100%;
+  padding: 30px;
+  text-align: center;
 }
 
-.Pokemon__card {
-  border: 1px solid black;
-  margin: 5px;
-}
+
+

@@ -1,0 +1,8 @@
+.Pokemon__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 800px;
+    justify-content: center;
+    align-content: center;
+}
