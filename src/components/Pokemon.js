@@ -9,7 +9,7 @@ class Pokemon extends React.Component {
     const {favorites} =this.props;
 
     return (
-      <div className="Pokemon__card" data-id={item.id}>
+      <div className={`${favorites.includes(item.id) ? `pokemon__card--selected` : ``} Pokemon__card`} data-id={item.id}>
         <img src={item.url} alt={item.name} className="card__img" />
         <div  className="card__title">
           <h2>{item.name} </h2>
