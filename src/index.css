@@ -12,3 +12,7 @@
   flex-direction: column;
   font-family: 'Montserrat', sans-serif;
 }
+
+body {
+  background-image: linear-gradient(to right top, #159dc8, #12d8f6, #5ffbf1);
+}
