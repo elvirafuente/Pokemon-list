@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import PokeList from './components/PokeList'
+import PokeList from './components/PokeList';
+import Filters from './components/Filters'
 
 const pokemons = [
   { "id": 1, "name": "bulbasaur", "types": ["poison", "grass"], "evolution": null, "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png" },
@@ -18,11 +19,35 @@ const pokemons = [
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favorites: [],
+    };
+    this.handlerClickCard = this.handlerClickCard.bind(this);
+    // this.handlerFavorites = this.handlerFavorites.bind(this);
+  }
+
+  handlerClickCard(event){
+    const targetID = parseInt(event.currentTarget.id);
+    
+    this.setState(prevState => {
+        if(this.state.favorites.includes(targetID)){
+            return {favorites: prevState.favorites.filter(item => item !== targetID)}
+        }else {
+            return {favorites: prevState.favorites.concat(targetID)}
+        }
+        
+    })
+
+}
+
   render() {
     return (
       <React.Fragment>
         <h1 className="app__title">My pokemon collection</h1>
-        <PokeList data={pokemons} />
+        <Filters data={pokemons} />
+        <PokeList data={pokemons} method={this.handlerClickCard} favorites={this.state.favorites}/>
       </React.Fragment>
     );
   }
