@@ -23,9 +23,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       favorites: [],
+      inputName: '',
     };
     this.handlerClickCard = this.handlerClickCard.bind(this);
-    // this.handlerFavorites = this.handlerFavorites.bind(this);
+    this.handleInputName = this.handleInputName.bind(this);
+    
   }
 
   handlerClickCard(event){
@@ -33,21 +35,35 @@ class App extends React.Component {
     
     this.setState(prevState => {
         if(this.state.favorites.includes(targetID)){
-            return {favorites: prevState.favorites.filter(item => item !== targetID)}
+            return {
+              ...prevState,
+              favorites: prevState.favorites.filter(item => item !== targetID)
+            }
         }else {
-            return {favorites: prevState.favorites.concat(targetID)}
-        }
-        
+            return {
+              ...prevState,
+              favorites: prevState.favorites.concat(targetID)
+            }
+        }      
     })
+  }
 
-}
+  handleInputName(event){
+    const { value } = event.currentTarget;
+    this.setState(prevState => {
+      return {
+        ...prevState,
+          inputName:  value,
+      }
+    })
+  }
 
   render() {
     return (
       <React.Fragment>
         <h1 className="app__title">My pokemon collection</h1>
-        <Filters data={pokemons} />
-        <PokeList data={pokemons} method={this.handlerClickCard} favorites={this.state.favorites}/>
+        <Filters data={pokemons} method={this.handleInputName}/>
+        <PokeList data={pokemons} method={this.handlerClickCard} inputName={this.state.inputName} favorites={this.state.favorites}/>
       </React.Fragment>
     );
   }

@@ -3,12 +3,12 @@ import React from 'react';
 class Filters extends React.Component {
     render() {
         return (
-            <form>
+            <div>
                 <label htmlFor="name">
                     Filter by name
-            <input type="text" id="name" name="name" />
+                <input type="text" id="name" name="name" onChange={this.props.method}/>
                 </label>
-            </form>
+            </div>
         )
     }
 }
