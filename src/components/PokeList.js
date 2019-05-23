@@ -17,13 +17,7 @@ class PokeList extends React.Component {
                 </ul>
             )
         } else {
-            const filteredPokemons = pokemons.filter(item => {
-                if(item.name.includes(inputName)){
-                    return true;
-                } else {
-                    return false;
-                }
-            })
+            const filteredPokemons = pokemons.filter(item => item.name.includes(inputName))
             console.log(filteredPokemons);
             
             return (
