@@ -6,17 +6,7 @@ class PokeList extends React.Component {
     render() {
         const pokemons = this.props.data;
         const { inputName } = this.props;
-        if(!inputName){
-            return (
-                <ul className="Pokemon__list">
-                    {pokemons.map(item =>
-                        <li key={item.id}>
-                            <Pokemon data={item} key={`${item.id}`} method={this.props.method} favorites={this.props.favorites}/>
-                        </li>
-                    )}
-                </ul>
-            )
-        } else {
+
             const filteredPokemons = pokemons.filter(item => item.name.includes(inputName))
             console.log(filteredPokemons);
             
@@ -29,7 +19,7 @@ class PokeList extends React.Component {
                     )}
                 </ul>  
             )
-        }
+       
         
     }
 }
