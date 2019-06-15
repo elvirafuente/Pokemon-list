@@ -5,7 +5,7 @@ import '../components/pokelist.css';
 class PokeList extends React.Component {
     render() {
         const pokemons = this.props.data;
-        const { inputName } = this.props;
+        const { inputName, inputTypes } = this.props;
 
            
             return (

@@ -16,8 +16,6 @@ const pokemons = [
   { "id": 10, "name": "caterpie", "types": ["bug"], "evolution": null, "url": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png" }
 ];
 
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -27,33 +25,33 @@ class App extends React.Component {
     };
     this.handlerClickCard = this.handlerClickCard.bind(this);
     this.handleInputName = this.handleInputName.bind(this);
-    
-  }
+ }
 
-  handlerClickCard(event){
+
+  handlerClickCard(event) {
     const targetID = parseInt(event.currentTarget.id);
-    
+
     this.setState(prevState => {
-        if(this.state.favorites.includes(targetID)){
-            return {
-              ...prevState,
-              favorites: prevState.favorites.filter(item => item !== targetID)
-            }
-        }else {
-            return {
-              ...prevState,
-              favorites: prevState.favorites.concat(targetID)
-            }
-        }      
+      if (this.state.favorites.includes(targetID)) {
+        return {
+          ...prevState,
+          favorites: prevState.favorites.filter(item => item !== targetID)
+        }
+      } else {
+        return {
+          ...prevState,
+          favorites: prevState.favorites.concat(targetID)
+        }
+      }
     })
   }
 
-  handleInputName(event){
+  handleInputName(event) {
     const { value } = event.currentTarget;
     this.setState(prevState => {
       return {
         ...prevState,
-          inputName:  value,
+        inputName: value,
       }
     })
   }
@@ -62,8 +60,8 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <h1 className="app__title">My pokemon collection</h1>
-        <Filters data={pokemons} method={this.handleInputName}/>
-        <PokeList data={pokemons} method={this.handlerClickCard} inputName={this.state.inputName} favorites={this.state.favorites}/>
+        <Filters data={pokemons} method={this.handleInputName} />
+        <PokeList data={pokemons} method={this.handlerClickCard} inputName={this.state.inputName} favorites={this.state.favorites} />
       </React.Fragment>
     );
   }

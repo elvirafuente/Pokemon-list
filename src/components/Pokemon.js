@@ -5,9 +5,9 @@ import '../components/pokemon.css';
 class Pokemon extends React.Component {
   render() {
     const item = this.props.data
-    console.log(item)
     const {favorites} =this.props;
-
+    console.log(item);
+    
     return (
       <div className={`${favorites.includes(item.id) ? `pokemon__card--selected` : ``} Pokemon__card`} data-id={item.id}>
         <img src={item.url} alt={item.name} className="card__img" />
