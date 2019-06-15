@@ -11,7 +11,7 @@ class PokeList extends React.Component {
             return (
                 <ul className="Pokemon__list">
                    {pokemons
-                    .filter(item => item.name.includes(inputName))
+                    .filter(item => item.name.toLowerCase().includes(inputName.toLowerCase()))
                     .map(item =>
                         <li key={item.id}>
                             <Pokemon data={item} key={`${item.id}`} method={this.props.method} favorites={this.props.favorites}/>
